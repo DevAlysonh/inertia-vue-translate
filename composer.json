@@ -4,10 +4,16 @@
     "type": "library",
     "require": {
         "php": "^8.0",
+        "illuminate/console": "^10.0 || ^11.0",
         "illuminate/support": "^9.0 || ^10.0 || ^11.0",
-        "inertiajs/inertia-laravel": "^1.3"
+        "inertiajs/inertia-laravel": "^1.3",
+        "symfony/console": "^7.0"
     },
     "license": "MIT",
+    "support": {
+        "issues": "https://github.com/DevAlysonh/inertia-vue-translate/issues",
+        "source": "https://github.com/DevAlysonh/inertia-vue-translate"
+    },
     "autoload": {
         "psr-4": {
             "DevAlysonh\\InertiaVueTranslate\\": "src/"
@@ -19,14 +25,6 @@
                 "DevAlysonh\\InertiaVueTranslate\\Providers\\TranslationServiceProvider"
             ]
         }
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "@php artisan vendor:publish --tag=translations --force"
-        ],
-        "post-update-cmd": [
-            "@php artisan vendor:publish --tag=translations --force"
-        ]
     },
     "authors": [
         {
