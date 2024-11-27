@@ -2,24 +2,30 @@
 
 namespace DevAlysonh\InertiaVueTranslate\Providers;
 
+use DevAlysonh\InertiaVueTranslate\Commands\SetupInertiaVueTranslations;
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
-class TranslationServiceProvider extends ServiceProvider
+class TranslationServiceProvider extends ServiceProvider implements DeferrableProvider
 {
-    public function boot()
-    {
-        $this->publishes([
-            __DIR__.'/../Middleware/ShareTranslations.php' => app_path('Http/Middleware/ShareTranslations.php'),
-        ], 'middleware');
-        
-        $this->publishes([
-            __DIR__.'/../resources/js/mixins/translations.js' => resource_path('js/mixins/translations.js'),
-            __DIR__.'/../resources/lang' => resource_path('lang'),
-        ], 'translations');
-    }
-
     public function register()
     {
         //
+    }
+
+    public function boot()
+    {
+        if (!$this->app->runningInConsole()) {
+            return;
+        }
+
+        $this->commands([
+            SetupInertiaVueTranslations::class,
+        ]);
+    }
+
+    public function provides()
+    {
+        return [SetupInertiaVueTranslations::class];
     }
 }
