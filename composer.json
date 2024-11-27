@@ -13,6 +13,21 @@
             "DevAlysonh\\InertiaVueTranslate\\": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DevAlysonh\\InertiaVueTranslate\\Providers\\TranslationServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@php artisan vendor:publish --tag=translations --force"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=translations --force"
+        ]
+    },
     "authors": [
         {
             "name": "Dev.Alysonh"
