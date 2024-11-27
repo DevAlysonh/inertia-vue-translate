@@ -30,7 +30,8 @@
     },
     "authors": [
         {
-            "name": "Dev.Alysonh"
+            "name": "Alyson Nunes",
+            "email": "dev.alysonh@gmail.com"
         }
     ],
     "minimum-stability": "stable"
