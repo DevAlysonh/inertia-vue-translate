@@ -41,6 +41,7 @@ createInertiaApp({
 ```
 // Laravel ^11
 // If you are using Laravel version 10 or earlier, you need to register the middleware in the Kernel.php file.
+
 <?php
 
 use Illuminate\Foundation\Application;
@@ -69,3 +70,24 @@ return Application::configure(basePath: dirname(__DIR__))
 ```
 
 That's it! You can now start translating texts in your Laravel application with Inertia + Vue.js, similar to how you would in blade.php files:
+```
+<h1>{{ __('Welcome') }}</h1>
+```
+
+## Important to know
+
+This package will create two language files in `/resources/lang` by default: en.json (English) and pt_BR.json (Brazilian Portuguese). These files don't contain any specific translations yet; they are there for you to start translating your content.
+
+The ShareTranslations middleware fetches a translation file based on your Laravel application's locale. For instance, if your locale is set to en (English), it will look for translations in resources/lang/en.json and cache them indefinitely.
+
+Therefore, ensure you have a cache driver configured in your application, and remember to clear the cache whenever new translations are added; otherwise, you'll never see them!
+
+## Contributing
+
+Feel free to submit pull requests, as long as they are well-documented and explain the reason for your request.
+
+Do not make pull requests to the main branch; instead, create a new branch for your request.
+
+### That's it!
+Thank's, hope this package help you!
+Dev.AlysonH
