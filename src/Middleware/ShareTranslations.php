@@ -1,15 +1,15 @@
 <?php
 
-namespace DevAlysonh\InertiaVueTranslate\Middleware;
+namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
-use Inertia\Inertia;
+use Illuminate\Http\Request;
 
 class ShareTranslations
 {
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         $locale = session('locale', app()->getLocale());
 
