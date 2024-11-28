@@ -21,8 +21,11 @@ class SetupInertiaVueTranslations extends Command
 
         (new Filesystem)->ensureDirectoryExists(resource_path());
         (new Filesystem)->ensureDirectoryExists(resource_path('js'));
+        (new Filesystem)->ensureDirectoryExists(resource_path('js/mixins'));
+        (new Filesystem)->ensureDirectoryExists(resource_path('lang'));
         copy(__DIR__ . '/../resources/js/mixins/translations.js', resource_path('js/mixins/translations.js'));
-        (new Filesystem)->copyDirectory(__DIR__ . '/../resources/lang', resource_path('lang'));
+        copy(__DIR__ . '/../resources/lang/en.json', resource_path('/lang/en.json'));
+        copy(__DIR__ . '/../resources/lang/pt_BR.json', resource_path('/lang/pt_BR.json'));
 
         $this->info('Finished!');
     }
